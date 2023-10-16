@@ -1,0 +1,63 @@
+@font-face {
+    font-family: "font1";
+    src: url(../fonts/font1.ttf);
+}
+/* 版心 */
+.w{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* 导航栏 */
+.navigator{
+    position: relative;
+    height: 73px;
+}
+
+.navigator .logo a{
+    display: block;
+    float: left;
+    height: 73px;
+    width: 176px;
+    font-size: 0;
+}
+
+.navigator .sort{
+    font-family: "font1";
+    position: absolute;
+    top: 20px;
+    left: 360px;
+    float: left;
+    height: 35px;
+}
+.sort ul li{
+    float: left;
+    line-height: 35px;
+    margin-left: 20px;
+    font-size: 20px;
+}
+.sort ul li:hover{
+    border-bottom: 2px solid #666666;
+}
+
+/* 搜索框 */
+.search{
+    position: absolute;
+    right: 30px;
+    top: 16px;
+    width: 320px;
+    height: 40px;
+}
+
+.search input{
+    float: left;
+    height: 38px;
+    width: 260px;
+    border: 1px solid #cfcfcf;
+    border-right: 0;
+    padding-left: 10px;
+}
+
+.search button{
+    float: left;
+}

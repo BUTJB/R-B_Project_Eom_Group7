@@ -1,0 +1,86 @@
+<!--
+ * @Date: 2023-02-01 10:33:10
+ * @LastEditors: yehanyang 1958944515@qq.com
+ * @LastEditTime: 2023-06-27 23:36:58
+ * @FilePath: /Let'talk/Users/mac/Documents/vscode/Robot_front/register.html
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot</title>
+    <link rel="stylesheet" href="css/register.css">
+        <!-- 引入基础样式文件 -->
+        <link rel="stylesheet" href="css/base.css">
+        <!-- 引入common样式文件 -->
+        <link rel="stylesheet" href="css/common.css">
+        <link rel="shortcut icon" href="favicon.ico" />
+</head>
+<body>
+    <!-- 导航栏 -->
+<div class="w">
+    <div class="navigator">
+        <!-- logo标签的制作 -->
+        <div class="logo">
+            <h1>
+                <a href="#" title="Robort"><img src="./images/robot.jpeg" alt="" width="100px"></a>
+            </h1>
+        </div>
+        <!-- 导航栏的选项 -->
+        <div class="sort">
+            <ul>
+                <li><a href="register.html">Login & Register</a></li>
+                <li><a href="#" id="robotModify">Edit the information of robots</a></li>
+            </ul>
+        </div>
+        
+    </div>
+</div>
+    <div class='container' id='container'>
+        <div class="form-container sign-up-container">
+            <!-- register -->
+           <div id="f">
+            <h1>register</h1>
+            <input id="admin_z" type="text" placeholder="username">
+            <input id="pass_z" type="password" placeholder="password">
+            <!-- <input id="robortName" type="text" placeholder="请输入您机器人的名称">
+            <input id="robortID" type="text" placeholder="请输入您机器人的ID"> -->
+            <input id="mail" type="email" placeholder="mail">
+            <button id="send_code">Send verification code</button>
+            <input id="code" type="email" placeholder="verification code">
+            <button id="register">register</button>
+            </div>
+        </div>
+        <div class="form-container sign-in-container">
+            <!-- login -->
+            <div id="f">
+                <h1>login</h1>
+            <input id ="admin" type="text" placeholder="username">
+            <input id="pass" type="password" placeholder="password">
+            <a href="#">Forget password？</a>
+            <button id="login">login</button>
+            </div>
+        </div>
+        <!-- 侧边栏内容 -->
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Already have a account?</h1>
+                    <p>Click me to login!</p>
+                    <button class='ghost' id="signIn">login</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Have no account？</h1>
+                    <p>Click button to register brand new one!</p>
+                    <button class='ghost' id="signUp">register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.js"></script>
+<script src="js/register.js"></script>
+</html>

@@ -1,0 +1,85 @@
+<!--
+ * @Date: 2023-10-10 12:16:36
+ * @LastEditors: yangyehan 1958944515@qq.com
+ * @LastEditTime: 2023-10-11 11:24:53
+ * @FilePath: /xiaoyou/Users/mac/Desktop/Robot_front_10.10/RobotInfo/index.html
+ * @Description: 
+-->
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form | CodingNepal</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+  <div class="wrapper">  
+    <div class="w">
+      <header>
+        <div class="image-text">
+            <span class="image">
+               <a href="../uploadR/index.html" target="_blank" >
+                <img id="imgAvatar" src="./AVATAR.JPG" alt="这是一个图片" width="">
+               </a>
+            </span>
+            <div class="text logo-text">
+                <span id="userName" class="name">  Robot Information Show and Edit </span>
+            </div>
+        </div>
+        <!--这里是使用css定义的开关样式然后用 document先获取body中的元素 
+        再进一步定位到toggle中的元素
+        之后直接在js中进行操控
+        同理开关那个也是只不过换成了toggle-switch
+        -->
+        <i class="bx bx-chevron-right toggle"></i> <!--在toggle前面的是按钮样式的声明 是一个bx中的图库就是-->
+    </header>
+    <form action="#">
+
+      <div class="dbl-field">
+        <div class="field">
+          <input type="text" name="name" placeholder="Robot name" value="">
+          <i class='fas fa-user'></i>
+        </div>
+        <div class="field">
+          <input type="text" name="RobotID" placeholder="RobotID" value="" readonly="true">
+          <i class='fas fa-globe'></i>
+        </div>
+       
+      </div>
+
+      <div class="dbl-field">
+        <div class="field">
+          <input type="text" name="phone" placeholder="Owner's phone number" value="">
+          <i class='fas fa-phone-alt'></i>
+        </div>
+        <div class="field">
+          <input type="text" name="email" placeholder="Owner's email" value="">
+          <i class='fas fa-envelope'></i>
+        </div>
+        
+      </div>
+
+      <div class="message">
+        <textarea placeholder="Details about this Robot" name="message" value=""></textarea>
+        <i class="material-icons">message</i>
+      </div>
+
+      
+      <div class="dbl-field">
+        <div class="button-area">
+          <button type="button">Edit submit</button>
+          <span></span>    
+        </div>
+      </div>
+    
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

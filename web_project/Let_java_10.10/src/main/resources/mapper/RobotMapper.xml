@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.let_java.mapper.RobotMapper">
+
+
+    <update id="updateAvatarR" parameterType="com.example.let_java.entity.Robot">
+        UPDATE robot set
+            avatar = #{avatar}
+        where uid= #{uid}
+    </update>
+
+    <select id="findAvatarR"  resultType="String">
+        SELECT avatar FROM robot WHERE uid = #{uid};
+    </select>
+
+    <select id="findRobot"  resultType="com.example.let_java.entity.Robot">
+        SELECT * FROM robot WHERE uid = #{uid};
+    </select>
+
+    <insert id="insertRobot" >
+        INSERT INTO
+            robot (uid,rid)
+        VALUES
+            (#{uid},#{rid})
+    </insert>
+
+
+    <select id="findRid"  resultType="String">
+        SELECT rid FROM robot WHERE uid = #{uid};
+    </select>
+
+    <update id="updateRobotMessage">
+        UPDATE robot
+        <set>
+            <if test="robotname != null">
+                rname = #{robotname},
+            </if>
+            <if test="message != null">
+                message = #{message},
+            </if>
+            <if test="phone != null">
+                phone = #{phone},
+            </if>
+        </set>
+        where rid = #{rid}
+    </update>
+
+
+</mapper>
+
+

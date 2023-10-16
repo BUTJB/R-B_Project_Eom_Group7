@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.example.let_java.LetJavaApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.702 s - in com.example.let_java.LetJavaApplicationTests

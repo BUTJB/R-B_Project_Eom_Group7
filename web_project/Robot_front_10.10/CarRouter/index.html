@@ -1,0 +1,155 @@
+<!--
+ * @Date: 2023-10-10 16:21:43
+ * @LastEditors: yangyehan 1958944515@qq.com
+ * @LastEditTime: 2023-10-11 09:52:08
+ * @FilePath: /xiaoyou/Users/mac/Desktop/Robot_front_10.10/CarRouter/index.html
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./style.css">
+    <title>RobotRouter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        #header {
+            background-color:#0D6EFD;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #info {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        canvas {
+            display: block;
+            margin-top: 20px;
+            border: 2px solid #d3d3d3;
+            border-radius: 5px;
+        }
+
+        /* 响应式布局 */
+        @media screen and (max-width: 600px) {
+            #container {
+                padding: 10px;
+            }
+
+            button {
+                margin: 5px 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <h1>Robot  Router</h1>
+    </div>
+    <div id="container">
+        <button id="start">Start Communication</button>
+        <button id="stop">Stop Communication</button>
+        <div id="info">
+            <p id="speed">Speed: -</p>
+            <p id="run_time">Run Time: -</p>
+            <p id="direction">Direction: -</p>
+        </div>
+        <canvas id="canvas" width="500" height="500"></canvas>
+    </div>
+    <script>
+        var ws,
+            canvas = document.getElementById('canvas'),
+            ctx = canvas.getContext('2d'),
+            x = canvas.width / 2,
+            y = canvas.height / 2,
+            speedElement = document.getElementById('speed'),
+            runTimeElement = document.getElementById('run_time'),
+            directionElement = document.getElementById('direction'),
+            startButton = document.getElementById('start'),
+            stopButton = document.getElementById('stop');
+
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+
+        startButton.onclick = function() {
+            ws = new WebSocket('ws://localhost:5678');
+            ws.onmessage = function (event) {
+                ctx.clearRect(x - 5, y - 5, 10, 10);
+                var data = JSON.parse(event.data);
+                var distance = data.speed * data.run_time;
+                switch (data.direction) {
+                    case 0:  // left
+                        x -= distance;
+                        break;
+                    case 1:  // up
+                        y -= distance;
+                        break;
+                    case 2:  // right
+                        x += distance;
+                        break;
+                    case 3:  // down
+                        y += distance;
+                        break;
+                }
+                ctx.lineTo(x, y);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.lineTo(x, y);
+                ctx.stroke();
+                ctx.fillStyle = 'blue';
+                ctx.fillRect(x - 5, y - 5, 10, 10);
+                speedElement.textContent = 'Speed: ' + data.speed +'m/s';
+                runTimeElement.textContent = 'Run time: ' + data.run_time +'s';
+                directionElement.textContent = 'Direction: ' + data.direction;
+            };
+        };
+
+        stopButton.onclick = function() {
+            if (ws) {
+                ws.close();
+            }
+        };
+    </script>
+</body>
+
+</html>

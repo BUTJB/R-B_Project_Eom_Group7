@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 图标组件库 -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                   <a href="../upload/index.html" target="_blank" >
+                    <img id="imgAvatar" src="./AVATAR.JPG" alt="这是一个图片" width="">
+                   </a>
+                </span>
+                <div class="text logo-text">
+                    <span id="userName" class="name"> Larry</span>
+                    <span class="profession"> Web Robot Manager </span>
+                </div>
+            </div>
+            <!--这里是使用css定义的开关样式然后用 document先获取body中的元素 
+            再进一步定位到toggle中的元素
+            之后直接在js中进行操控
+            同理开关那个也是只不过换成了toggle-switch
+            -->
+            <i class="bx bx-chevron-right toggle"></i> <!--在toggle前面的是按钮样式的声明 是一个bx中的图库就是-->
+        </header>
+        <div class="menu-bar">
+            <div class="menu">
+               
+                <ul class="menu-links">
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class="bx bx-home-alt icon"></i>
+                            <span id="home" class="text nav-text">Home page</span>
+                        </a>
+                    </li>
+
+                    <!-- 下面的小li都是一样的样式，只需要修改文字和图标 -->
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-bar-chart-alt-2 icon'></i>
+                            <span id="Editp" class="text nav-text">Modify personal information</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-bell icon'></i>
+                            <span id="EditRI" class="text nav-text">Modify robotic information</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-pie-chart-alt icon'></i>
+                            <span id="CarRouter">Show the real time map</span>
+                        </a>
+                    </li>
+
+                   
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-wallet icon'></i>
+                            <span id="baozhang">Future extension</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottom-content">
+                <li>
+                    <a href="../register.html">
+                        <i class="bx bx-log-out icon"></i>
+                        <span class="text nav-text">Exit</span>
+                    </a>
+                </li>
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class="bx bx-moon icon moon"></i>
+                        <i class="bx bx-sun icon sun"></i>
+                    </div>
+                    <span class="mode-text text">Dark Mode</span>
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="home">
+        <!-- <div class="text">Dashboard Sidebar</div> -->
+        <div id="right">
+            <iframe id="iframe" src="../personPage/index.html" frameborder="0" scrolling="no"height="100%"  width="100%"></iframe>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html> 

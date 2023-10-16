@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.let_java.mapper.UserMapper">
+<!--  注册，插入用户信息-->
+    <insert id="insertUser" >
+        INSERT INTO
+            user (username, password,mail,uid,avatar)
+        VALUES
+            (#{username},#{password},#{mail},#{uid},#{avatar})
+    </insert>
+
+<!--    登录验证-->
+    <select id="findByUser"  resultType="com.example.let_java.entity.User">
+        SELECT * FROM user;
+    </select>
+
+    <select id="findUser"  resultType="com.example.let_java.entity.User">
+        SELECT * FROM user WHERE uid = #{uid};
+    </select>
+
+    <select id="findAvatar"  resultType="String">
+        SELECT avatar FROM user WHERE uid = #{uid};
+    </select>
+
+    <!-- 更新信息-->
+
+    <update id="updatePersonalMessage">
+        UPDATE user
+        <set>
+            <if  test="username != null">
+                username = #{username},
+            </if>
+            <if  test="phone != null">
+                phone = #{phone},
+            </if>
+            <if  test="mail != null">
+                mail = #{mail},
+            </if>
+            <if  test="message != null">
+                message = #{message},
+            </if>
+        </set>
+        where uid= #{uid}
+    </update>
+
+    <update id="updateAvatar" parameterType="com.example.let_java.entity.User">
+        UPDATE user set
+            avatar = #{avatar}
+        where uid= #{uid}
+    </update>
+
+
+    <select id="findUid"  resultType="String">
+        SELECT uid FROM user WHERE username = #{username};
+    </select>
+
+
+</mapper>
+
+
